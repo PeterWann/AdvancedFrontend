@@ -1,0 +1,53 @@
+$color-bg: linear-gradient(
+  90deg,
+  rgba(255, 255, 255, 0.28335084033613445) 0%,
+  rgba(140, 82, 255, 1) 0%,
+  rgba(140, 116, 250, 1) 22%,
+  rgba(71, 140, 228, 1) 51%,
+  rgba(31, 128, 138, 1) 100%
+);
+
+$color-bg-45deg: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.28335084033613445) 0%,
+    rgba(140, 82, 255, 1) 0%,
+    rgba(140, 116, 250, 1) 22%,
+    rgba(71, 140, 228, 1) 51%,
+    rgba(31, 128, 138, 1) 100%
+  );
+
+$color-text-primary: linear-gradient(
+  90deg,
+  rgba(255, 255, 255, 0.28335084033613445) 0%,
+  rgba(176, 144, 242, 1) 0%,
+  rgba(156, 137, 244, 1) 22%,
+  rgba(80, 215, 233, 1) 51%,
+  rgba(0, 123, 162, 1) 100%
+);
+
+$text-shadow-before: -0.012em -0.012em 2px rgba(255, 255, 255, 0.4);
+
+$text-shadow-after: 7px 7px 7px rgba(0, 0, 0, 0.5),
+  14px 14px 14px rgba(0, 0, 0, 0.4), 21px 21px 21px rgba(0, 0, 0, 0.1);
+
+$main-bg: linear-gradient(
+  45deg,
+  #080b0f 20%,
+  #12171e 20.1%,
+  #141a21 40%,
+  #171c23 40.1%,
+  #191f26 60%,
+  #1b2128 60.1%,
+  #1d232a 80%,
+  #1f252c 80.1%,
+  #222830 100%
+);
+
+$navbar-bg: radial-gradient(circle, #141a21 0%, #080b0f 80.1%);
+
+$color-black: rgba(0, 0, 0, 1);
+
+$color-grey: rgb(31, 31, 31);
+$color-lightgrey: rgb(116, 116, 116);
+
+$color-darkgreen: #171c23;

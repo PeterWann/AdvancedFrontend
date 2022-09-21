@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreditCardListComponent } from './components/credit-card/credit-card-list/credit-card-list.component';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeScreenComponent
+    component: CreditCardListComponent,
   },
   {
     path: 'credit-card',
@@ -23,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

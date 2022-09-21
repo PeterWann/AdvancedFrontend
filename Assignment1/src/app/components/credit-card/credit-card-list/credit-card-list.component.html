@@ -1,1 +1,18 @@
-<p>credit-card-list works!</p>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Card Holder Name</th>
+        <th scope="col">Card Number</th>
+        <th scope="col">Issuer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of creditCards$ | async">
+        <td data-label="Card Holder Name">{{ card.cardholder_name }}</td>
+        <td data-label="Card Number">{{ card.card_number }}</td>
+        <td data-label="Issuer">{{ card.issuer }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
