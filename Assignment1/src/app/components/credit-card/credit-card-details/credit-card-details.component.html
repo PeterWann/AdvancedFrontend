@@ -1,30 +1,55 @@
-<div class="container" *ngIf="cardDetails$">
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Card Holder Name</th>
-        <th scope="col">Card Number</th>
-        <th scope="col">Csc Code</th>
-        <th scope="col">Expiration Date (Month)</th>
-        <th scope="col">Expiration Date (Year)</th>
-        <th scope="col">Issuer</th>
-        <th scope="col">Delete Card</th>
-      </tr>
-    </thead>
-    <tbody>
-      <td data-label="Card Holder Name">{{ cardDetails$.cardholder_name }}</td>
-      <td data-label="Card Number">{{ cardDetails$.card_number }}</td>
-      <td data-label="Csc Code">{{ cardDetails$.csc_code }}</td>
-      <td data-label="Expiration Date (Month)">
-        {{ cardDetails$.expiration_date_month }}
-      </td>
-      <td data-label="Expiration Date (Year)">
-        {{ cardDetails$.expiration_date_year }}
-      </td>
-      <td data-label="Issuer">{{ cardDetails$.issuer }}</td>
-      <td data-label="Delete Card">
-        <button (click)="deleteCreditCard()">❌</button>
-      </td>
-    </tbody>
-  </table>
+<div class="wrapper">
+  <div class="container-1" *ngIf="cardDetails$">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Card Holder Name</th>
+          <th scope="col">Card Number</th>
+          <th scope="col">Csc Code</th>
+          <th scope="col">Expiration Date (Month)</th>
+          <th scope="col">Expiration Date (Year)</th>
+          <th scope="col">Issuer</th>
+          <th scope="col">Delete Card</th>
+          <th scope="col">Transactions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td data-label="Card Holder Name">
+          {{ cardDetails$.cardholder_name }}
+        </td>
+        <td data-label="Card Number">{{ cardDetails$.card_number }}</td>
+        <td data-label="Csc Code">{{ cardDetails$.csc_code }}</td>
+        <td data-label="Expiration Date (Month)">
+          {{ cardDetails$.expiration_date_month }}
+        </td>
+        <td data-label="Expiration Date (Year)">
+          {{ cardDetails$.expiration_date_year }}
+        </td>
+        <td data-label="Issuer">{{ cardDetails$.issuer }}</td>
+        <td data-label="Delete Card">
+          <button (click)="deleteCreditCard()">❌</button>
+        </td>
+        <td data-label="Transactions" style="height: 1em;float: right; padding-left: 20vh; padding-right: 0vh;"></td>
+      </tbody>
+    </table>
+    
+  </div>
+  <div *ngIf="card_transactions$" class="container-2">
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of card_transactions$">
+            <td>{{transaction.amount | number:'1.0-2'}} {{transaction.currency}}</td>
+            <td>{{transaction.date | date}}</td>   
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
