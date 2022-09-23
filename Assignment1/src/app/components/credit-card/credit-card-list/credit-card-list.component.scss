@@ -26,12 +26,12 @@ table tr {
 
 table th,
 table td {
+  font-size: 1em;
   padding: 0.625em;
   text-align: center;
 }
 
 table th {
-  font-size: 0.85em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -77,15 +77,10 @@ table th {
     content: attr(data-label);
     float: left;
     font-weight: bold;
+    padding-right: 5vh;
     text-transform: uppercase;
   }
   table td:last-child {
     border-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .container {
-    margin-top: 5vh;
   }
 }

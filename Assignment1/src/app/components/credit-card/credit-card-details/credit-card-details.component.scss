@@ -95,3 +95,13 @@
     text-transform: uppercase;
   }
 }
+
+button {
+  border: none; 
+  font-size: 1em; 
+  background: white;
+}
+
+button:hover {
+  text-shadow: 0 0 0.2em lightcoral;
+}

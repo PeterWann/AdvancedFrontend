@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AppComponent,
     NavigationBarComponent,
     HomeScreenComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CreditCard } from 'src/app/models/credit-card.interface';
 import { CreditCardService } from 'src/app/services/credit-card.service';
@@ -9,11 +10,23 @@ import { CreditCardService } from 'src/app/services/credit-card.service';
   styleUrls: ['./credit-card-list.component.scss'],
 })
 export class CreditCardListComponent implements OnInit {
-  creditCards$!: Observable<CreditCard[]>;
+  creditCards$: CreditCard[] = [];
+  issuer!: string;
 
-  constructor(private cardService: CreditCardService) {}
+  constructor(private cardService: CreditCardService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.creditCards$ = this.cardService.getCreditCards();
+    this.route.queryParams.subscribe(params => {
+      this.issuer = params['issuer'];
+    })
+
+    this.cardService.getCreditCards().subscribe(value => {
+      this.creditCards$ = value;
+      this.sortCard();
+    })
+  }
+
+  sortCard(): void {
+    this.creditCards$ = this.creditCards$.filter(v => v.issuer === this.issuer)
   }
 }

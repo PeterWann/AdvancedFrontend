@@ -1,1 +1,43 @@
-<p>add-credit-card works!</p>
+<div class="container">
+  <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+    <table>
+      <thead>
+        <th></th>
+      </thead>
+      <tbody>
+        <td
+          data-label="Add Creditcard"
+          style="
+            font-size: 1em;
+            height: 1em;
+            padding-right: 15vh;
+            padding-left: 15vh;
+          "
+        ></td>
+        <td data-label="Card Holder">
+          <input type="text" formControlName="cardholder_name" />
+        </td>
+        <td data-label="Card Number">
+          <input type="number" formControlName="card_number" />
+        </td>
+        <td data-label="Csc Code">
+          <input type="number" formControlName="csc_code" />
+        </td>
+        <td data-label="Expiration Month (1-12)">
+          <input type="number" formControlName="expiration_date_month" />
+        </td>
+        <td data-label="Expiration Year">
+          <input type="number" formControlName="expiration_date_year" />
+        </td>
+        <td data-label="Issuer">
+          <input type="text" formControlName="issuer" />
+        </td>
+      </tbody>
+    </table>
+    <div class="wrapper">
+      <button type="submit" [disabled]="!creditCardForm.valid" class="btn">
+        <span>Submit</span>
+      </button>
+    </div>
+  </form>
+</div>

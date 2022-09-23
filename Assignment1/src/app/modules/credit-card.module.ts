@@ -4,14 +4,15 @@ import { CreditCardListComponent } from '../components/credit-card/credit-card-l
 import { CreditCardDetailsComponent } from '../components/credit-card/credit-card-details/credit-card-details.component';
 import { CreditCardRoutingModule } from '../routing/credit-card-routing.module';
 import { AddCreditCardComponent } from '../components/credit-card/add-credit-card/add-credit-card.component';
-import { MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [CreditCardListComponent, CreditCardDetailsComponent],
+  declarations: [CreditCardDetailsComponent, CreditCardListComponent],
   imports: [
     CommonModule,
     CreditCardRoutingModule,
     AddCreditCardComponent,
+    ReactiveFormsModule
   ],
 })
 export class CreditCardModule {}

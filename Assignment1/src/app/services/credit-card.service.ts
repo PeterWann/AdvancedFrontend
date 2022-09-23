@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { CreditCard } from '../models/credit-card.interface';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +21,8 @@ export class CreditCardService {
     return this.http.get<CreditCard>(`${this.rootUrl}/cards/${id}`);
   }
 
-  addCreditCard(card: CreditCard) {
-    return this.http.post(`${this.rootUrl}/cards`, card);
+  addCreditCard(card: FormGroup) {
+    return this.http.post(`${this.rootUrl}/cards/`, card.value).subscribe();
   }
 
   deleteCreditCard(id: number) {

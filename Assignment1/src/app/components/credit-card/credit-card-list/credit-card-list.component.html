@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="creditCards$" class="container">
   <table>
     <thead>
       <tr>
@@ -7,8 +7,8 @@
         <th scope="col">Issuer</th>
       </tr>
     </thead>
-    <tbody *ngFor="let card of creditCards$ | async" class="link-pointer">
-      <tr [routerLink]="['credit-card/', card.card_number]">
+    <tbody *ngFor="let card of creditCards$" class="link-pointer">
+      <tr [routerLink]="['/credit-card', card.card_number]">
         <td data-label="Card Holder Name">{{ card.cardholder_name }}</td>
         <td data-label="Card Number">{{ card.card_number }}</td>
         <td data-label="Issuer">{{ card.issuer }}</td>

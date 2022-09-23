@@ -1,12 +1,36 @@
-@import "../../../sass/colors";
 
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60vw;
-    height: 60vh;
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 0px 50px 0px 50px;
-}
+.container {
+
+    cursor: pointer;
+
+    table {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      width: 99.8%;
+    }
+    
+    table tr {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 0.35em;
+    }
+    
+    table th,
+    table td {
+      padding: 0.625em;
+      text-align: center;
+      font-size: 1em;
+    }
+    
+    table th {
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      height: 1em;
+      float: center;
+      padding-left: 20vh;
+      padding-right: 20vh;
+    }
+  }
