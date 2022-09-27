@@ -4,7 +4,8 @@ import { CreditCardListComponent } from '../components/credit-card/credit-card-l
 import { CreditCardDetailsComponent } from '../components/credit-card/credit-card-details/credit-card-details.component';
 import { CreditCardRoutingModule } from '../routing/credit-card-routing.module';
 import { AddCreditCardComponent } from '../components/credit-card/add-credit-card/add-credit-card.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [CreditCardDetailsComponent, CreditCardListComponent],
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CreditCardRoutingModule,
     AddCreditCardComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
   ],
 })
 export class CreditCardModule {}

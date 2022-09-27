@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreditCard } from 'src/app/models/credit-card.interface';
 import { CreditCardService } from 'src/app/services/credit-card.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-credit-card',
   templateUrl: './add-credit-card.component.html',
   styleUrls: ['./add-credit-card.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule], // OBS what to import
+  imports: [FormsModule, ReactiveFormsModule, MatSnackBarModule], // OBS what to import
 })
 export class AddCreditCardComponent implements OnInit {
   creditCardForm = this.formBuilder.group({
@@ -19,7 +25,8 @@ export class AddCreditCardComponent implements OnInit {
         Validators.required,
         Validators.pattern('[0-9]{7,16}'), // Must be integers and 7 to 16 digits
       ],
-    ],csc_code: [
+    ],
+    csc_code: [
       '',
       [
         Validators.pattern('[0-9]{3,3}'), // Must be integers and 3 digits
@@ -37,13 +44,15 @@ export class AddCreditCardComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private cardService: CreditCardService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    this.cardService.addCreditCard(this.creditCardForm)
+    this.cardService.addCreditCard(this.creditCardForm);
     this.router.navigate(['']);
+    this._snackBar.open('Submitted!', 'Done');
   }
 }

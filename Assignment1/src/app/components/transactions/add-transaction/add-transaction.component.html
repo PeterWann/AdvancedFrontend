@@ -1,0 +1,48 @@
+<div class="container">
+  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <table>
+      <thead>
+        <th></th>
+      </thead>
+      <tbody>
+        <td
+          data-label="Add Transaction"
+          style="
+            font-size: 1em;
+            height: 1em;
+            padding-right: 15vh;
+            padding-left: 15vh;
+          "
+        ></td>
+        <td data-label="Amount">
+          <input type="number" formControlName="amount" />
+        </td>
+        <td data-label="Currency">
+          <input type="text" formControlName="currency" />
+        </td>
+        <td data-label="Date">
+          <input type="date" formControlName="date" style="font-size: 1rem" />
+        </td>
+        <td data-label="Comment">
+          <input type="text" formControlName="comment" />
+        </td>
+
+        <td data-label="Creditcard">
+          <select required formControlName="credit_card" id="credit_card">
+            <option
+              *ngFor="let creditCard of creditCards"
+              [ngValue]="creditCard"
+            >
+              {{ creditCard.issuer }}: {{ creditCard.card_number }}
+            </option>
+          </select>
+        </td>
+      </tbody>
+    </table>
+    <div class="wrapper">
+      <button type="submit" [disabled]="!transactionForm.valid" class="btn">
+        <span>Submit</span>
+      </button>
+    </div>
+  </form>
+</div>

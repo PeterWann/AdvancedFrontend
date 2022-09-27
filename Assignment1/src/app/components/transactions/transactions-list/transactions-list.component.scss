@@ -1,0 +1,51 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.label {
+  color: grey;
+}
+
+.mat-input-element::placeholder {
+  color: lightslategray;
+}
+
+/* input color class */
+::ng-deep input.mat-input-element {
+  color: lightslategray;
+}
+
+.mat-header-cell,
+.mat-cell,
+.mat-footer-cell {
+  padding-right: 24px;
+}
+
+.deleteBtn {
+  background: transparent;
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.deleteBtn:hover {
+  color: red;
+  text-shadow: 0 0 0.2em lightcoral;
+}

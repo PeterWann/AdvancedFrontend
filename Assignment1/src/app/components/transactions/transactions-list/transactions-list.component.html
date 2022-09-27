@@ -1,1 +1,86 @@
-<p>transactions-list works!</p>
+<!-- From Angular Material -->
+<div *ngIf="isLoading" class="spinner">
+  <mat-progress-spinner mode="indeterminate"> </mat-progress-spinner>
+</div>
+
+<!-- Inspired from angular material -->
+<div>
+  <mat-form-field appearance="standard">
+    <mat-label class="label">Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Card number"
+    />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Card number Column -->
+      <ng-container matColumnDef="credit_card.card_number">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header="credit_card.card_number"
+        >
+          Card number
+        </th>
+        <td mat-cell *matCellDef="let transaction">
+          {{ getProperty(transaction, "credit_card.card_number") }}
+        </td>
+      </ng-container>
+
+      <!-- amount Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="amount">
+          Amount
+        </th>
+        <td mat-cell *matCellDef="let transaction">
+          {{ transaction.amount | number: "1.0-2":"da" }}{{ transaction.currency }}
+        </td>
+      </ng-container>
+
+      <!-- comment Column -->
+      <ng-container matColumnDef="comment">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Comment</th>
+        <td mat-cell *matCellDef="let transaction">
+          {{ transaction.comment }}
+        </td>
+      </ng-container>
+
+      <!-- date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let transaction">
+          {{ transaction.date | date: "medium" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let transaction">
+          <button class="deleteBtn" (click)="onDelete(transaction)">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="delete"
+            ></mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let transaction; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No matching data</td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of transactions"
+    ></mat-paginator>
+  </div>
+</div>

@@ -27,14 +27,15 @@
         </td>
         <td data-label="Issuer">{{ cardDetails$.issuer }}</td>
         <td data-label="Delete Card">
-          <button (click)="deleteCreditCard()">❌</button>
+          <button class="deleteBtn" (click)="deleteCreditCard()">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="delete"
+            ></mat-icon>
+          </button>
         </td>
-        <td
-          data-label="Transactions"
-          style="
-            height: 1em;
-          "
-        ></td>
+        <td data-label="Transactions" style="height: 1em"></td>
       </tbody>
     </table>
   </div>
@@ -51,7 +52,7 @@
           <tr *ngFor="let transaction of card_transactions$">
             <td>{{ transaction.date | date: "shortDate" }}</td>
             <td>
-              {{ transaction.amount | number: "1.0-2" }}
+              {{ transaction.amount | number: "1.0-2":"da" }}
               {{ transaction.currency }}
             </td>
           </tr>
