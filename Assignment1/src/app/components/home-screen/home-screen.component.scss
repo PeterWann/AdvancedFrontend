@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       border: 0;
-      width: 99.8%;
+      width: 30vw;
     }
     
     table tr {
@@ -29,8 +29,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       height: 1em;
-      float: center;
-      padding-left: 20vh;
-      padding-right: 20vh;
+      display: flex;
+      justify-content: center;
     }
   }

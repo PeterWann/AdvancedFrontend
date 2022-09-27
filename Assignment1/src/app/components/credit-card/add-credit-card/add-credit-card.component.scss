@@ -1,5 +1,5 @@
-@import '../../../../sass/colors';
-@import '../../../../sass/fonts';
+@import "../../../../sass/colors";
+@import "../../../../sass/fonts";
 
 .container {
   button {
@@ -81,7 +81,6 @@
     align-items: center;
     justify-content: center;
     padding-top: 2vh;
-    
   }
 
   .btn {
@@ -92,11 +91,11 @@
     margin: 15px;
     font-family: $poppins;
     width: 130px;
-    height: 40px; 
+    height: 40px;
     padding: 0px 25px;
 
     span {
-        text-shadow: 0px 1px 5px black;
+      text-shadow: 0px 1px 5px black;
     }
   }
 
@@ -106,8 +105,16 @@
 
   .btn:disabled {
     span {
-        opacity: 0.3;
+      opacity: 0.3;
     }
   }
-
 }
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  float: none;
+}
+
